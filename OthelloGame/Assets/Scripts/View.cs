@@ -5,7 +5,7 @@ public class View : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		Screen.SetResolution (800, 600, false);
+		Screen.SetResolution (1024, 768, false);
 	}
 
 }
