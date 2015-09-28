@@ -1,0 +1,37 @@
+Initialize engine version: 5.0.2f1 (0b02744d4013)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 960 (ID=0x1401)
+    Vendor:   NVIDIA
+    VRAM:     1930 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\shimazug\Documents\Othello\OthelloGame\OthelloGame_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\shimazug\Documents\Othello\OthelloGame\OthelloGame_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\shimazug\Documents\Othello\OthelloGame\OthelloGame_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\shimazug\Documents\Othello\OthelloGame\OthelloGame_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\shimazug\Documents\Othello\OthelloGame\OthelloGame_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\shimazug\Documents\Othello\OthelloGame\OthelloGame_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.034 seconds
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\shimazug\Documents\Othello\OthelloGame\OthelloGame_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\shimazug\Documents\Othello\OthelloGame\OthelloGame_Data\Managed\System.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 21f4 -> priority: 1 
+  Thread -> id: 834 -> priority: 1 
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 10.882530 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 310.
+Total: 0.346936 ms (FindLiveObjects: 0.031591 ms CreateObjectMapping: 0.020207 ms MarkObjects: 0.284322 ms  DeleteObjects: 0.009961 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.474816 ms
+
+Unloading 98 unused Assets to reduce memory usage. Loaded Objects now: 301.
+Total: 1.087199 ms (FindLiveObjects: 0.059482 ms CreateObjectMapping: 0.050375 ms MarkObjects: 0.544453 ms  DeleteObjects: 0.432033 ms)
+
