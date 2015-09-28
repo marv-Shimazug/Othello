@@ -258,7 +258,7 @@ public class Board : MonoBehaviour {
 		foreach (var num in i) {
 			// タイル情報更新.
 			m_TileArray[num].GetComponent<Tile>().StoneColor = p_MyColor;
-			int numj = m_TileArray[num].GetComponent<Tile>().StoneNum;
+//			int numj = m_TileArray[num].GetComponent<Tile>().StoneNum;
 
 			StoneList[m_TileArray[num].GetComponent<Tile>().StoneNum].GetComponent<MeshRenderer>().material.color = reverseColor;
 			StoneList[m_TileArray[num].GetComponent<Tile>().StoneNum].GetComponent<Stone>().StoneColor = p_MyColor;
@@ -467,10 +467,10 @@ public class Board : MonoBehaviour {
 
 		// 石配置.
 
-		m_StoneList.Add (CreateStone(MatrixPos(3, 3),false));	m_StoneList [0].name = "stone0";	m_TileArray[MatrixBox(3,3)].GetComponent<Tile>().Stone = true;	m_TileArray [MatrixBox (3, 3)].GetComponent<Tile> ().StoneColor = false; m_TileArray [MatrixBox (3, 3)].GetComponent<Tile> ().StoneNum = m_StoneList.Count-1;	m_StoneList [0].GetComponent<Stone> ().StoneColor = false;
-		m_StoneList.Add (CreateStone(MatrixPos(3, 4),true));	m_StoneList [1].name = "stone1";	m_TileArray[MatrixBox(3,4)].GetComponent<Tile>().Stone = true;	m_TileArray [MatrixBox (3, 4)].GetComponent<Tile> ().StoneColor = true;	 m_TileArray [MatrixBox (3, 4)].GetComponent<Tile> ().StoneNum = m_StoneList.Count-1;	m_StoneList [1].GetComponent<Stone> ().StoneColor = true;
-		m_StoneList.Add (CreateStone(MatrixPos(4, 3),true));	m_StoneList [2].name = "stone2";	m_TileArray[MatrixBox(4,3)].GetComponent<Tile>().Stone = true;	m_TileArray [MatrixBox (4, 3)].GetComponent<Tile> ().StoneColor = true;	 m_TileArray [MatrixBox (4, 3)].GetComponent<Tile> ().StoneNum = m_StoneList.Count-1;	m_StoneList [2].GetComponent<Stone> ().StoneColor = true;
-		m_StoneList.Add (CreateStone(MatrixPos(4, 4),false));	m_StoneList [3].name = "stone3";	m_TileArray[MatrixBox(4,4)].GetComponent<Tile>().Stone = true;	m_TileArray [MatrixBox (4, 4)].GetComponent<Tile> ().StoneColor = false; m_TileArray [MatrixBox (4, 4)].GetComponent<Tile> ().StoneNum = m_StoneList.Count-1;	m_StoneList [3].GetComponent<Stone> ().StoneColor = false;
+		m_StoneList.Add (CreateStone(MatrixPos(ROW/2 -1, COLUMN/2 - 1),false));	m_StoneList [0].name = "stone0";	m_TileArray[MatrixBox(ROW/2 -1, COLUMN/2 - 1)].GetComponent<Tile>().Stone = true;	m_TileArray [MatrixBox (ROW/2 -1, COLUMN/2 - 1)].GetComponent<Tile> ().StoneColor = false; m_TileArray [MatrixBox (ROW/2 -1, COLUMN/2 - 1)].GetComponent<Tile> ().StoneNum = m_StoneList.Count-1;	m_StoneList [0].GetComponent<Stone> ().StoneColor = false;
+		m_StoneList.Add (CreateStone(MatrixPos(ROW/2 -1, COLUMN/2),true));	m_StoneList [1].name = "stone1";	m_TileArray[MatrixBox(ROW/2 -1, COLUMN/2)].GetComponent<Tile>().Stone = true;	m_TileArray [MatrixBox (ROW/2 -1, COLUMN/2)].GetComponent<Tile> ().StoneColor = true;	 m_TileArray [MatrixBox (ROW/2 -1, COLUMN/2)].GetComponent<Tile> ().StoneNum = m_StoneList.Count-1;	m_StoneList [1].GetComponent<Stone> ().StoneColor = true;
+		m_StoneList.Add (CreateStone(MatrixPos(ROW/2, COLUMN/2 - 1),true));	m_StoneList [2].name = "stone2";	m_TileArray[MatrixBox(ROW/2, COLUMN/2 - 1)].GetComponent<Tile>().Stone = true;	m_TileArray [MatrixBox (ROW/2, COLUMN/2 - 1)].GetComponent<Tile> ().StoneColor = true;	 m_TileArray [MatrixBox (ROW/2, COLUMN/2 - 1)].GetComponent<Tile> ().StoneNum = m_StoneList.Count-1;	m_StoneList [2].GetComponent<Stone> ().StoneColor = true;
+		m_StoneList.Add (CreateStone(MatrixPos(ROW/2, COLUMN/2),false));	m_StoneList [3].name = "stone3";	m_TileArray[MatrixBox(ROW/2, COLUMN/2)].GetComponent<Tile>().Stone = true;	m_TileArray [MatrixBox (ROW/2, COLUMN/2)].GetComponent<Tile> ().StoneColor = false; m_TileArray [MatrixBox (ROW/2, COLUMN/2)].GetComponent<Tile> ().StoneNum = m_StoneList.Count-1;	m_StoneList [3].GetComponent<Stone> ().StoneColor = false;
 
 /*
 		m_StoneList.Add (CreateStone(MatrixPos(3, 3),true));	m_StoneList [0].name = "stone0";	m_TileArray[MatrixBox(3,3)].GetComponent<Tile>().Stone = true;	m_TileArray [MatrixBox (3, 3)].GetComponent<Tile> ().StoneColor = true; m_TileArray [MatrixBox (3, 3)].GetComponent<Tile> ().StoneNum = m_StoneList.Count-1;	m_StoneList [0].GetComponent<Stone> ().StoneColor = true;

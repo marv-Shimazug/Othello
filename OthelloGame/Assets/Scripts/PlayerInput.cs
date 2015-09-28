@@ -99,7 +99,7 @@ public class PlayerInput : MonoBehaviour {
 	private void RandomAI(bool p_MyColor){
 		int num = 0;
 		List<int> tiles = new List<int> ();
-		for (int i = 0; i < 64; i++) {
+		for (int i = 0; i < Board.ROW * Board.COLUMN; i++) {
 			if (!board.TileArray [i].GetComponent<Tile> ().Stone) {
 				if(board.TurnAvailable(i, p_MyColor).Count > 0){
 					// 石設置.
