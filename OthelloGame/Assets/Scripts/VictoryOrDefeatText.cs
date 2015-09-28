@@ -6,6 +6,7 @@ public class VictoryOrDefeatText : MonoBehaviour {
 
 	[SerializeField]Text btnText;
 	private Board board;			// ボードにアクセスするための情報格納庫.
+	private GameInfo gameInfo;
 
 	public enum Vod{
 		black,
@@ -16,6 +17,7 @@ public class VictoryOrDefeatText : MonoBehaviour {
 	void Start () {
 		board = GameObject.Find ("Board").GetComponent<Board> ();
 		btnText.text = "";
+		gameInfo = GameObject.Find ("GameInfo").GetComponent<GameInfo>();
 	}
 
 	// 勝ち負け表示.
@@ -31,8 +33,8 @@ public class VictoryOrDefeatText : MonoBehaviour {
 			retText = "引き分け\n\n";
 		}
 
-		retText += "黒の数:" + board.StoneCount (false) + "\n";
-		retText += "白の数:" + board.StoneCount (true) + "\n";
+		retText += "黒の数:" + (board.StoneCount (false) + gameInfo.GetMultiplicationBlack) + "\n";
+		retText += "白の数:" + (board.StoneCount (true) + gameInfo.GetMultiplicationWhite) + "\n";
 
 		return retText;
 	}

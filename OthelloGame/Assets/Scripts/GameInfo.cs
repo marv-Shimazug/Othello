@@ -15,6 +15,11 @@ public class GameInfo : MonoBehaviour {
 	private int m_TimeLimitButton;		// タイムリミット設定ボタン.
 	[SerializeField]Text m_TimeLimitText;
 
+	private static int MultiplicationBlack = 0;
+	private static int MultiplicationWhite = 0;
+	[SerializeField]Text MultiplicationBlackText;
+	[SerializeField]Text MultiplicationWhiteText;
+
 	private bool CameraMode;	// true 2D false 3D
 	[SerializeField]Text CameraModeText;
 	[SerializeField]GameObject[] MatrixText;
@@ -23,6 +28,8 @@ public class GameInfo : MonoBehaviour {
 	public bool BlackPlayer{get{return m_BlackPlayer;}set{m_BlackPlayer = value;}}
 	public bool WhitePlayer{get{return m_WhitePlayer;}set{m_WhitePlayer = value;}}
 	public int GetTimeLimit{get{return m_TimeLimit;}}
+	public int GetMultiplicationBlack{get{return MultiplicationBlack;}}
+	public int GetMultiplicationWhite{get{return MultiplicationWhite;}}
 
 	void Start()
 	{
@@ -31,6 +38,8 @@ public class GameInfo : MonoBehaviour {
 		if ("title" == Application.loadedLevelName)
 		{
 			m_TimeLimitText.text = "なし";
+			MultiplicationBlackText.text = "x" + MultiplicationBlack.ToString() + "  ハンデ数";
+			MultiplicationWhiteText.text = "x" + MultiplicationWhite.ToString() + "  ハンデ数";
 		}
 	}
 
@@ -142,4 +151,36 @@ public class GameInfo : MonoBehaviour {
 		}
 	}
 
+	public void OnBlackAdd()
+	{
+		MultiplicationBlack++;
+		MultiplicationBlackText.text = "x" + MultiplicationBlack.ToString() + "  ハンデ数";
+	}
+
+	public void OnBlackSub()
+	{
+		MultiplicationBlack--;
+		if (MultiplicationBlack < 0) 
+		{
+			MultiplicationBlack = 0;
+		}
+		MultiplicationBlackText.text = "x" + MultiplicationBlack.ToString () + "  ハンデ数";
+	}
+
+
+	public void OnWhiteAdd()
+	{
+		MultiplicationWhite++;
+		MultiplicationWhiteText.text = "x" + MultiplicationWhite.ToString() + "  ハンデ数";
+	}
+	
+	public void OnWhiteSub()
+	{
+		MultiplicationWhite--;
+		if (MultiplicationWhite < 0) 
+		{
+			MultiplicationWhite = 0;
+		}
+		MultiplicationWhiteText.text = "x" + MultiplicationWhite.ToString () + "  ハンデ数";
+	}
 }

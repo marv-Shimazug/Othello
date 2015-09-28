@@ -4,12 +4,14 @@ using UnityEngine.UI;
 public class GameSet : MonoBehaviour {
 
 	private Board board;			// ボードにアクセスするための情報格納庫.
+	private GameInfo gameInfo;
 	private Color m_Color;
 	[SerializeField]Text btnText;
 
 	// Use this for initialization
 	void Start () {
 		board = GameObject.Find ("Board").GetComponent<Board> ();
+		gameInfo = GameObject.Find ("GameInfo").GetComponent<GameInfo>();
 		if (this.GetComponent<Image> () != null) {
 			m_Color = this.GetComponent<Image> ().color;
 			this.GetComponent<Image> ().color = new Color (m_Color.r, m_Color.g, m_Color.b, 0.0f);
@@ -49,7 +51,7 @@ public class GameSet : MonoBehaviour {
 			if (btnText != null) {
 				btnText.text = "";
 			}
-			board.VOD.SetVictory (board.StoneCount (true), board.StoneCount (false));
+			board.VOD.SetVictory (board.StoneCount (true) + gameInfo.GetMultiplicationWhite, board.StoneCount (false) + gameInfo.GetMultiplicationBlack);
 			board.VOD.SetPos(new Vector3(320.0f, 120.0f, 0.0f));
 		}
 	}

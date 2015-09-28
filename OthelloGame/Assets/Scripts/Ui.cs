@@ -6,10 +6,11 @@ public class Ui : MonoBehaviour {
 
 	[SerializeField]Text btnText;
 	public Board board;			// ボードにアクセスするための情報格納庫.
-
+	private GameInfo gameInfo;
 	
 	void Start () {
 		board = GameObject.Find ("Board").GetComponent<Board> ();
+		gameInfo = GameObject.Find ("GameInfo").GetComponent<GameInfo>();
 	}
 
 	void Update () {
@@ -30,7 +31,7 @@ public class Ui : MonoBehaviour {
 	{
 		btnText.text = 	"ターン:" + board.TurnCount + "\n"
 				+"現在:" + TurnText(board.TurnManager) + "\n"
-				+"黒の数:" + board.StoneCount(false) + "\n"
-				+"白の数:" + board.StoneCount(true) + "\n";
+				+"黒の数:" + (board.StoneCount(false) + gameInfo.GetMultiplicationBlack) + "\n"
+				+"白の数:" + (board.StoneCount(true) + gameInfo.GetMultiplicationWhite) + "\n";
 	}
 }

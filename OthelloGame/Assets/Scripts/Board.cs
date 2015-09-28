@@ -27,6 +27,7 @@ public class Board : MonoBehaviour {
 	private List<GameObject> m_GameSet = new List<GameObject>();
 	private int m_ReCount;
 	private Ui ui;
+	private GameInfo gameInfo;
 
 	private List<Tile.data[]> BoardHistory = new List<Tile.data[]>();	//	ログ用.
 //	private List<GameObject[]> m_BoardHistory = new List<GameObject[]>();	//	ログ用.
@@ -303,8 +304,8 @@ public class Board : MonoBehaviour {
 	{
 		// まだ石が置けるか.
 		// 石の数を比較.
-		int countWhite = 0;
-		int countBlack = 0;
+		int countWhite = 0 + gameInfo.GetMultiplicationWhite;
+		int countBlack = 0 + gameInfo.GetMultiplicationBlack;
 		for (int i = 0; i < ROW * COLUMN; i++) {
 			if (m_TileArray [i].GetComponent<Tile> ().StoneColor) {
 				countWhite++;
@@ -329,8 +330,8 @@ public class Board : MonoBehaviour {
 			return VictoryOrDefeat.Draw;
 		}
 		return VictoryOrDefeat.Draw;
-		
 	}
+
 
 	// 石の数を調べる.
 	// @p_Color	:	調べたい色.
@@ -440,6 +441,7 @@ public class Board : MonoBehaviour {
 		m_GameSet.Add (GameObject.Find("Result") as GameObject);
 		ui = GameObject.Find ("Text").GetComponent<Ui>();
 		m_TurnWait = false;
+		gameInfo = GameObject.Find ("GameInfo").GetComponent<GameInfo>();
 
 		// タイル配置.
 		int count = 0;
