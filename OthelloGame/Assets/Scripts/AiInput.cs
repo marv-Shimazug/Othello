@@ -9,6 +9,9 @@ public class AiInput : MonoBehaviour {
 	int m_Wait;
 	private GameInfo gameInfo;
 	private Ui ui;
+
+	private TimeLimit SetTimeLimit;
+
 	// アクセサ.
 	public bool AiColor{get{return m_AiColor;}private set{m_AiColor = value;}}
 
@@ -18,6 +21,7 @@ public class AiInput : MonoBehaviour {
 		board = GameObject.Find ("Board").GetComponent<Board> ();
 		gameInfo = GameObject.Find ("GameInfo").GetComponent<GameInfo>();
 		ui = GameObject.Find ("Text").GetComponent<Ui>();
+		SetTimeLimit = GameObject.Find ("TimeLimit").GetComponent<TimeLimit>();
 	}
 	
 	// Update is called once per frame
@@ -60,6 +64,8 @@ public class AiInput : MonoBehaviour {
 					board.BoardLog(false);
 
 					ui.SendMessage("SetText");
+					// タイムリミットの更新.
+					SetTimeLimit.SendMessage("ResetTimeLimit");
 				}
 			}
 		}
@@ -84,6 +90,8 @@ public class AiInput : MonoBehaviour {
 		board.BoardLog(false);
 
 		ui.SendMessage("SetText");
+		// タイムリミットの更新.
+		SetTimeLimit.SendMessage("ResetTimeLimit");
 	}
 
 	private void RandomAI(bool p_MyColor){
@@ -91,7 +99,7 @@ public class AiInput : MonoBehaviour {
 		List<int> tiles = new List<int> ();
 		for (int i = 0; i < 64; i++) {
 			if (!board.TileArray [i].GetComponent<Tile> ().Stone) {
-				if(board.TurnAvailable(i, p_MyColor).Count > 0){
+				if(board.TurnAvailable(i, p_MyColor).Count > 0){	
 					// 石設置.
 					tiles.Insert(0, i);
 				}
@@ -108,5 +116,7 @@ public class AiInput : MonoBehaviour {
 		board.BoardLog(false);
 
 		ui.SendMessage("SetText");
+		// タイムリミットの更新.
+		SetTimeLimit.SendMessage("ResetTimeLimit");
 	}
 }

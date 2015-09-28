@@ -11,6 +11,9 @@ public class PlayerInput : MonoBehaviour {
 	private GameInfo gameInfo;
 	private Ui ui;
 	int m_Wait;
+
+	private TimeLimit SetTimeLimit;
+
 	// アクセサ.
 	public bool PlayerColor{get{return m_PlayerColor;}private set{m_PlayerColor = value;}}
 
@@ -21,6 +24,7 @@ public class PlayerInput : MonoBehaviour {
 		undo = GameObject.Find("Undo").GetComponent<Undo>();
 		gameInfo = GameObject.Find ("GameInfo").GetComponent<GameInfo>();
 		ui = GameObject.Find ("Text").GetComponent<Ui>();
+		SetTimeLimit = GameObject.Find ("TimeLimit").GetComponent<TimeLimit>();
 	}
 
 	void Update () {
@@ -68,6 +72,9 @@ public class PlayerInput : MonoBehaviour {
 					undo.ResetCount = 0;
 
 					ui.SendMessage("SetText");
+
+					// タイムリミットの更新.
+					SetTimeLimit.SendMessage("ResetTimeLimit");
 				}
 			}
 		}
@@ -94,6 +101,9 @@ public class PlayerInput : MonoBehaviour {
 		board.BoardLog(false);
 
 		ui.SendMessage("SetText");
+
+		// タイムリミットの更新.
+		SetTimeLimit.SendMessage("ResetTimeLimit");
 	}
 
 	private void RandomAI(bool p_MyColor){
@@ -118,5 +128,8 @@ public class PlayerInput : MonoBehaviour {
 		board.BoardLog(false);
 
 		ui.SendMessage("SetText");
+
+		// タイムリミットの更新.
+		SetTimeLimit.SendMessage("ResetTimeLimit");
 	}
 }

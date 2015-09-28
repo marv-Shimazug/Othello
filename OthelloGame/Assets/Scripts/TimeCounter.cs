@@ -19,7 +19,7 @@ public class TimeCounter : MonoBehaviour {
 		if (board.SetAvailableManager) 
 		{
 			time += Time.deltaTime;
-			GetComponent<Text> ().text = ((int)time).ToString ();
+			GetComponent<Text> ().text = "経過時間：" + ((int)time).ToString ();
 		}
 
 	}

@@ -18,10 +18,14 @@ public class GameInfo : MonoBehaviour {
 	// アクセサ.
 	public bool BlackPlayer{get{return m_BlackPlayer;}set{m_BlackPlayer = value;}}
 	public bool WhitePlayer{get{return m_WhitePlayer;}set{m_WhitePlayer = value;}}
+	public int GetTimeLimit{get{return m_TimeLimit;}}
 
 	void Start()
 	{
-		m_TimeLimitText.text = "なし";
+		if ("title" == Application.loadedLevelName)
+		{
+			m_TimeLimitText.text = "なし";
+		}
 	}
 
 	// プレイヤーが何人存在するかを返却.
