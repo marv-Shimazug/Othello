@@ -15,6 +15,10 @@ public class GameInfo : MonoBehaviour {
 	private int m_TimeLimitButton;		// タイムリミット設定ボタン.
 	[SerializeField]Text m_TimeLimitText;
 
+	private bool CameraMode;	// true 2D false 3D
+	[SerializeField]Text CameraModeText;
+	[SerializeField]GameObject[] MatrixText;
+
 	// アクセサ.
 	public bool BlackPlayer{get{return m_BlackPlayer;}set{m_BlackPlayer = value;}}
 	public bool WhitePlayer{get{return m_WhitePlayer;}set{m_WhitePlayer = value;}}
@@ -22,6 +26,8 @@ public class GameInfo : MonoBehaviour {
 
 	void Start()
 	{
+		CameraMode = true;
+
 		if ("title" == Application.loadedLevelName)
 		{
 			m_TimeLimitText.text = "なし";
@@ -107,6 +113,32 @@ public class GameInfo : MonoBehaviour {
 			m_TimeLimit = 30;
 			m_TimeLimitText.text = ((int)m_TimeLimit).ToString() + "秒";
 			break;
+		}
+	}
+
+	public void OnCameraMode()
+	{
+		if (true == CameraMode) 
+		{
+			CameraMode = false;
+			CameraModeText.text = "3Dカメラ";
+			Camera.main.transform.position = new Vector3(4.0f, -4.8f, -8.0f);
+			Camera.main.transform.rotation = Quaternion.Euler(320.0f,0.0f,0.0f);
+			for(int i = 0; i < MatrixText.Length; i++)
+			{
+				MatrixText[i].SetActive(false);
+			}
+		}
+		else
+		{
+			CameraMode = true;
+			CameraModeText.text = "2Dカメラ";
+			Camera.main.transform.position = new Vector3(3.6f, 3.6f, -10.0f);
+			Camera.main.transform.rotation = Quaternion.Euler(0.0f,0.0f,0.0f);
+			for(int i = 0; i < MatrixText.Length; i++)
+			{
+				MatrixText[i].SetActive(true);
+			}
 		}
 	}
 
